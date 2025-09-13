@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vidéos 2ème Bac - Ressources Éducatives</title>
+<link href="../../css/harvard-style.css" rel="stylesheet"/>
+<link href="../../css/footer-social.css" rel="stylesheet"/>
+<link href="../../css/video-resources.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&amp;family=Source+Sans+Pro:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* Styles spécifiques à la page de vidéos */
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1>Vidéos 2ème Bac</h1>
+<p>Cours en vidéo pour les élèves de 2ème Année Bac</p>
+</div>
+</header>
+<nav>
+<div class="container">
+<ul>
+<li><a href="../../index.html">Accueil</a></li>
+<li><a href="../../TroncCommun/index.html">Tronc Commun</a></li>
+<li><a href="../../1Bac/index.html">1ère Bac</a></li>
+<li><a href="../../2Bac/index.html">2ème Bac</a></li>
+<li><a href="../../Livres/index.html">Livres</a></li>
+<li><a href="../../Videos/index.html">Vidéos</a></li>
+<li><a href="../../Contact/index.html">Contact</a></li>
+</ul>
+</div>
+</nav>
+<main class="container">
+<section class="intro">
+<h2>Vidéos pour la 2ème Année Bac</h2>
+<div style="margin: 20px 0; text-align: center;">
+    <img src="../../images/2bac-banner.svg" alt="Vidéos éducatives de physique et chimie" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);">
+</div>
+<p>Cette page est en cours de construction. Les vidéos pour la 2ème Année Bac seront bientôt disponibles.</p>
+
+<div class="channel-info">
+    <h3>Notre chaîne YouTube</h3>
+    <p>Abonnez-vous à notre chaîne pour être informé dès la publication de nouvelles vidéos !</p>
+    <a href="https://www.youtube.com/channel/VOTRE_ID_CHAINE" target="_blank" class="subscribe-button">
+        <i class="fab fa-youtube"></i> S'abonner
+    </a>
+</div>
+</section>
+</main>
+
+<a class="back-to-top" href="#">
+<i class="fas fa-arrow-up"></i>
+</a>
+<div class="footer-spacer" style="height: 80px; clear: both;"></div>
+<footer class="auto-footer">
+<div class="footer-social-links">
+    <a href="https://www.youtube.com/channel/VOTRE_ID_CHAINE" target="_blank" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/VOTRE_COMPTE" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@VOTRE_COMPTE" target="_blank" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.facebook.com/VOTRE_PAGE" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+</div>
+© 2025 - Physiquetous.com<br/>Tous droits réservés<br/></footer>
+<script src="../../js/video-resources.js"></script>
+</body>
+</html>

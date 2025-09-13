@@ -1,0 +1,137 @@
+/* Styles pour uniformiser les sections pour 1Bac et 2Bac */
+
+/* Style des semestres */
+.semestre-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.semestre-btn {
+  padding: 14px 25px;
+  border-radius: 30px;
+  border: 2px solid #a51c30;
+  background: white;
+  color: #a51c30;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.semestre-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.semestre-btn.active {
+  background: #a51c30;
+  color: white;
+  box-shadow: 0 3px 10px rgba(165, 28, 48, 0.3);
+}
+
+.semestre-section {
+  display: none;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+.semestre-section.active {
+  display: block;
+}
+
+/* Animation de transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Organisation des chapitres */
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Fix pour le positionnement de la section des semestres */
+.semestre-switcher-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Séparation entre physique et chimie */
+.subject-divider {
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+.subject-divider h2 {
+  color: #a51c30;
+  position: relative;
+  display: inline-block;
+}
+
+.subject-divider h2:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #a51c30, #d44a40);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Style des cartes de chapitre */
+.chapter-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.75rem;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid #a51c30;
+}
+
+.chapter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Section des devoirs */
+.devoir-section {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.devoir-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Bouton devoir */
+a.btn-devoir, button.btn-devoir {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #a51c30;
+  background: rgba(165, 28, 48, 0.05);
+  color: #a51c30;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(165, 28, 48, 0.1);
+  margin: 10px;
+}
+
+a.btn-devoir:hover, button.btn-devoir:hover {
+  transform: translateY(-2px);
+  background: rgba(165, 28, 48, 0.1);
+  box-shadow: 0 4px 8px rgba(165, 28, 48, 0.15);
+}

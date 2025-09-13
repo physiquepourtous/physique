@@ -1,0 +1,227 @@
+/* Optimisations mobiles pour le site éducatif */
+
+/* Styles pour le menu hamburger */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  outline: none;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background: #a51c30;
+  transition: all 0.3s;
+  border-radius: 3px;
+}
+
+.menu-toggle.active .hamburger:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .hamburger:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Améliorations des interactions tactiles */
+@media (max-width: 768px) {
+  .resource-item:active {
+    background-color: #f1f1f1;
+    transform: scale(0.98);
+  }
+  
+  a:active {
+    color: #d44a40;
+  }
+  
+  .back-to-top:active {
+    background-color: #8a1829;
+    transform: scale(0.95);
+  }
+  
+  /* Modification du menu pour mobile */
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav .container {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin-top: 40px;
+  }
+  
+  nav ul.menu-open {
+    max-height: 500px;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+  
+  /* Éviter le scroll lorsque le menu est ouvert */
+  body.menu-active {
+    overflow: hidden;
+  }
+}
+
+/* Optimisations pour les très petits écrans */
+@media (max-width: 480px) {
+  .chapter-card {
+    padding: 1rem;
+  }
+  
+  .resource-item {
+    min-width: calc(50% - 0.375rem);
+    padding: 0.6rem 0.5rem;
+  }
+  
+  .resource-item a {
+    font-size: 0.9rem;
+  }
+  
+  /* Ajustement du bouton retour en haut */
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  /* Ajustement des espaces */
+  .intro {
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+  }
+  
+  /* Ajustement des tailles de police */
+  header h1 {
+    font-size: 1.9rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.8rem;
+  }
+  
+  section h2 {
+    font-size: 1.7rem;
+  }
+  
+  .chapter-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Optimisations pour les très petits écrans */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  header h1 {
+    font-size: 1.7rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  .chapter-card {
+    padding: 0.75rem;
+  }
+  
+  .intro {
+    padding: 1.25rem;
+  }
+  
+  /* Ajuster les tailles des boutons */
+  .semestre-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  a.btn-devoir, button.btn-devoir {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Réduire l'espace entre les éléments */
+  .semestre-switcher {
+    gap: 8px;
+  }
+  
+  /* Optimiser le footer */
+  .footer-social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 3px;
+  }
+}
+
+/* Amélioration pour le chargement des polices */
+@media (max-width: 768px) {
+  body {
+    font-display: swap;
+  }
+}
+
+/* Amélioration pour l'accessibilité des liens */
+@media (max-width: 768px) {
+  .resource-item a, nav ul li a, .btn-devoir {
+    padding: 12px 15px;  /* Augmente la zone tactile */
+  }
+}

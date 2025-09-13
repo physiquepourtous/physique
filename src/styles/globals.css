@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles globaux personnalisés */
+@layer base {
+  body {
+    @apply bg-light text-dark font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold mb-4;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+  p {
+    @apply mb-4;
+  }
+}
+
+/* Styles pour les composants */
+@layer components {
+  .container {
+    @apply max-w-6xl mx-auto px-4 py-6;
+  }
+  
+  .btn {
+    @apply py-2 px-4 rounded font-medium transition-colors;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-custom p-5;
+  }
+  
+  /* Styles pour les breadcrumbs */
+  .breadcrumb {
+    @apply flex flex-wrap text-sm mb-6;
+  }
+  
+  .breadcrumb-item {
+    @apply flex items-center;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    content: "/";
+    @apply mx-2 text-secondary;
+  }
+  
+  /* Styles pour les livres */
+  .book-card {
+    @apply flex flex-col md:flex-row gap-5 bg-white rounded-lg shadow-custom p-5 mb-6 transition-transform hover:translate-y-[-5px];
+  }
+  
+  .book-image {
+    @apply w-full md:w-1/4 flex-shrink-0;
+  }
+  
+  .book-details {
+    @apply flex-grow;
+  }
+  
+  .book-title {
+    @apply text-xl font-bold mb-2;
+  }
+  
+  .book-author {
+    @apply text-secondary mb-3;
+  }
+  
+  .book-description {
+    @apply text-gray-700 mb-4;
+  }
+  
+  .book-link a {
+    @apply btn btn-primary inline-flex items-center;
+  }
+  
+  /* Styles pour les vidéos */
+  .video-card {
+    @apply flex flex-col bg-white rounded-lg shadow-custom overflow-hidden mb-6 transition-transform hover:translate-y-[-5px];
+  }
+  
+  .video-thumbnail {
+    @apply w-full aspect-video overflow-hidden;
+  }
+  
+  .video-thumbnail iframe {
+    @apply w-full h-full;
+  }
+  
+  .video-details {
+    @apply p-5;
+  }
+  
+  .video-title {
+    @apply text-xl font-bold mb-2;
+  }
+  
+  .video-description {
+    @apply text-gray-700 mb-4;
+  }
+  
+  .video-link a {
+    @apply text-primary hover:text-primary/80 inline-flex items-center gap-2;
+  }
+  
+  /* Styles pour le formulaire de contact */
+  .contact-section {
+    @apply bg-white rounded-lg shadow-custom p-6 mb-8;
+  }
+  
+  .contact-title {
+    @apply flex items-center gap-2 text-xl font-bold mb-4;
+  }
+  
+  .form-group {
+    @apply mb-4;
+  }
+  
+  .form-group label {
+    @apply block text-gray-700 mb-2;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    @apply w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+  
+  .form-group textarea {
+    @apply h-32;
+  }
+  
+  .btn-submit {
+    @apply btn btn-primary w-full md:w-auto;
+  }
+}
+
+/* Utilitaires personnalisés */
+@layer utilities {
+  .transition-standard {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}

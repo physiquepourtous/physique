@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vidéos Tronc Commun Scientifique - Ressources Éducatives</title>
+<link href="../../css/harvard-style.css" rel="stylesheet"/>
+<link href="../../css/footer-social.css" rel="stylesheet"/>
+<link href="../../css/video-resources.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&amp;family=Source+Sans+Pro:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* === VIDEO STYLES === */
+html, body { height: 100%; }
+body { min-height: 100vh; position: relative; }
+main, .main, .content, .page-content { padding-bottom: 100px; }
+
+/* YouTube video container styles */
+.video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.video-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid #a51c30;
+  height: 100%;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-thumbnail iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-details {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-title {
+  font-size: 1.2rem;
+  color: #a51c30;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.video-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.video-link {
+  margin-top: auto;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.video-link:hover {
+  background-color: #f1f1f1;
+  border-color: #ddd;
+}
+
+.video-link a {
+  color: #a51c30;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.video-link a i {
+  margin-right: 5px;
+}
+
+/* Semestre toggles */
+.semestre-switcher { 
+  display: flex; 
+  justify-content: center; 
+  gap: 14px; 
+  margin: 22px 0; 
+}
+
+.semestre-btn { 
+  padding: 12px 18px; 
+  border-radius: 999px; 
+  border: 2px solid #a51c30; 
+  background: white; 
+  color: #a51c30; 
+  font-weight: 700; 
+  cursor: pointer; 
+}
+
+.semestre-btn.active { 
+  background: #a51c30; 
+  color: white; 
+}
+
+.semestre-section { 
+  display: none; 
+  margin-bottom: 30px; 
+}
+
+.semestre-section.active { 
+  display: block; 
+}
+
+.subject-title {
+  color: #a51c30;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+  border-left: 3px solid #a51c30;
+  padding-left: 10px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #a51c30;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0.8;
+  transform: translateY(100px);
+}
+
+.back-to-top.visible {
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: #8a1829;
+  opacity: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.channel-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.subscribe-button {
+  display: inline-block;
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0;
+  transition: background-color 0.3s;
+}
+
+.subscribe-button:hover {
+  background-color: #cc0000;
+  text-decoration: none;
+  color: white;
+}
+
+.subscribe-button i {
+  margin-right: 8px;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1>Vidéos Tronc Commun Scientifique</h1>
+<p>Cours en vidéo pour les élèves du Tronc Commun</p>
+</div>
+</header>
+<nav>
+<div class="container">
+<ul>
+<li><a href="../../index.html">Accueil</a></li>
+<li><a href="../../TroncCommun/index.html">Tronc Commun</a></li>
+<li><a href="../../1Bac/index.html">1ère Bac</a></li>
+<li><a href="../../2Bac/index.html">2ème Bac</a></li>
+<li><a href="../../Livres/index.html">Livres</a></li>
+<li><a href="../../Videos/index.html">Vidéos</a></li>
+<li><a href="../../Contact/index.html">Contact</a></li>
+</ul>
+</div>
+</nav>
+<main class="container">
+<section class="intro">
+<h2>Vidéos Cours pour le Tronc Commun Scientifique</h2>
+<div style="margin: 20px 0; text-align: center;">
+    <img src="../../images/tronc-commun-banner.svg" alt="Vidéos éducatives de physique et chimie" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);">
+</div>
+<p>Découvrez nos vidéos éducatives qui expliquent les concepts clés du programme de physique et chimie pour le Tronc Commun Scientifique. Ces ressources complémentaires vous aideront à mieux comprendre les chapitres difficiles.</p>
+
+<div class="channel-info">
+    <h3>Notre chaîne YouTube</h3>
+    <p>Abonnez-vous à notre chaîne pour ne manquer aucune nouvelle vidéo !</p>
+    <a href="https://www.youtube.com/channel/VOTRE_ID_CHAINE" target="_blank" class="subscribe-button">
+        <i class="fab fa-youtube"></i> S'abonner
+    </a>
+</div>
+</section>
+
+<div class="semestre-switcher">
+    <button class="semestre-btn active" data-target="semestre-1" type="button">Semestre 1</button>
+    <button class="semestre-btn" data-target="semestre-2" type="button">Semestre 2</button>
+</div>
+
+<!-- Semestre 1 Videos -->
+<section class="semestre-section active" id="semestre-1">
+    <h2 class="subject-title">Physique - Semestre 1</h2>
+    
+    <!-- Chapitre 1 -->
+    <h3 class="chapter-title">Chapitre 1 : La gravitation universelle</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="La gravitation universelle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">La gravitation universelle</h3>
+                <p class="video-description">Introduction à la loi de la gravitation universelle et ses applications dans notre système solaire.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 2 -->
+    <h3 class="chapter-title">Chapitre 2 : Exemples d'actions mécaniques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Actions mécaniques" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Actions mécaniques</h3>
+                <p class="video-description">Introduction aux différentes actions mécaniques et leurs effets sur les objets.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 3 -->
+    <h3 class="chapter-title">Chapitre 3 : Le mouvement</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Le mouvement" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le mouvement</h3>
+                <p class="video-description">Différents types de mouvements et leurs caractéristiques principales.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 4 -->
+    <h3 class="chapter-title">Chapitre 4 : Le principe d'inertie</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Le principe d'inertie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le principe d'inertie</h3>
+                <p class="video-description">Explication du principe d'inertie (première loi de Newton) et ses applications.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_4" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 5 -->
+    <h3 class="chapter-title">Chapitre 5 : Équilibre d'un corps sous l'action de 2 forces</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Équilibre 2 forces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Équilibre d'un corps soumis à deux forces</h3>
+                <p class="video-description">Conditions d'équilibre d'un corps soumis à deux forces et applications.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_5" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 6 -->
+    <h3 class="chapter-title">Chapitre 6 : Équilibre d'un corps sous l'action de 3 forces</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Équilibre 3 forces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Équilibre d'un corps soumis à trois forces</h3>
+                <p class="video-description">Étude de l'équilibre d'un corps soumis à trois forces coplanaires et non parallèles.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_6" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 7 -->
+    <h3 class="chapter-title">Chapitre 7 : Équilibre d'un solide en rotation autour d'un axe fixe</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Équilibre en rotation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Équilibre en rotation</h3>
+                <p class="video-description">Conditions d'équilibre d'un solide en rotation autour d'un axe fixe.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_7" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="subject-title">Chimie - Semestre 1</h2>
+    
+    <!-- Chapitre 1 Chimie -->
+    <h3 class="chapter-title">Chapitre 1 : Les espèces chimiques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" title="Espèces chimiques" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Les espèces chimiques</h3>
+                <p class="video-description">Classification et propriétés des différentes espèces chimiques.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_8" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 2 Chimie -->
+    <h3 class="chapter-title">Chapitre 2 : Extraction, séparation et identification des espèces chimiques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" title="Extraction chimique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Extraction et séparation</h3>
+                <p class="video-description">Techniques de laboratoire pour extraire et séparer différentes espèces chimiques.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_9" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 3 Chimie -->
+    <h3 class="chapter-title">Chapitre 3 : Synthèse des espèces chimiques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" title="Synthèse chimique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Synthèse des composés chimiques</h3>
+                <p class="video-description">Méthodes de synthèse des composés chimiques et applications industrielles.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_10" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 4 Chimie -->
+    <h3 class="chapter-title">Chapitre 4 : Le modèle de l'atome</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" title="Modèle de l'atome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le modèle de l'atome</h3>
+                <p class="video-description">Évolution des modèles atomiques et structure électronique de l'atome.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_11" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 5 Chimie -->
+    <h3 class="chapter-title">Chapitre 5 : La géométrie de quelques molécules</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_12" title="Géométrie moléculaire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Géométrie moléculaire</h3>
+                <p class="video-description">Théorie VSEPR et prédiction de la géométrie des molécules simples.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_12" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Semestre 2 Videos -->
+<section class="semestre-section" id="semestre-2">
+    <h2 class="subject-title">Physique - Semestre 2</h2>
+    
+    <!-- Chapitre 8 -->
+    <h3 class="chapter-title">Chapitre 8 : Le courant électrique continu</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_13" title="Courant électrique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le courant électrique continu</h3>
+                <p class="video-description">Principes fondamentaux du courant électrique continu et ses applications.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_13" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 9 -->
+    <h3 class="chapter-title">Chapitre 9 : La tension électrique</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_14" title="Tension électrique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">La tension électrique</h3>
+                <p class="video-description">Définition et mesure de la tension électrique dans les circuits.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_14" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 10 -->
+    <h3 class="chapter-title">Chapitre 10 : Association des conducteurs ohmiques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_15" title="Conducteurs ohmiques" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Association de résistances</h3>
+                <p class="video-description">Calcul des résistances équivalentes dans différentes configurations de circuit.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_15" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 11 -->
+    <h3 class="chapter-title">Chapitre 11 : Caractéristiques de quelque dipôles passifs</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_16" title="Dipôles passifs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Les dipôles passifs</h3>
+                <p class="video-description">Étude des caractéristiques des principaux dipôles passifs (résistances, condensateurs...).</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_16" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 12 -->
+    <h3 class="chapter-title">Chapitre 12 : Caractéristique d'un dipôle actif</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_17" title="Dipôles actifs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Les dipôles actifs</h3>
+                <p class="video-description">Caractéristiques des générateurs et autres dipôles actifs dans un circuit électrique.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_17" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 13 -->
+    <h3 class="chapter-title">Chapitre 13 : Le transistor</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_18" title="Le transistor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le transistor</h3>
+                <p class="video-description">Fonctionnement et applications du transistor en électronique.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_18" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 14 -->
+    <h3 class="chapter-title">Chapitre 14 : L'amplificateur opérationnel</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_19" title="Amplificateur opérationnel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">L'amplificateur opérationnel</h3>
+                <p class="video-description">Fonctionnement et montages de base utilisant l'amplificateur opérationnel.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_19" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="subject-title">Chimie - Semestre 2</h2>
+    
+    <!-- Chapitre 6 Chimie -->
+    <h3 class="chapter-title">Chapitre 6 : Classification périodique des éléments chimiques</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_20" title="Classification périodique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Le tableau périodique</h3>
+                <p class="video-description">Organisation et propriétés des éléments dans le tableau périodique.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_20" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 7 Chimie -->
+    <h3 class="chapter-title">Chapitre 7 : La mole, unité de quantité de matière</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_21" title="La mole" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">La mole et le nombre d'Avogadro</h3>
+                <p class="video-description">Concept de mole et calculs stœchiométriques de base.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_21" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 8 Chimie -->
+    <h3 class="chapter-title">Chapitre 8 : La concentration molaire</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_22" title="Concentration molaire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">La concentration molaire</h3>
+                <p class="video-description">Calculs de concentration molaire et préparation de solutions.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_22" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chapitre 9 Chimie -->
+    <h3 class="chapter-title">Chapitre 9 : Modélisation des transformations chimiques - Bilan de la matière</h3>
+    <div class="video-container">
+        <div class="video-card">
+            <div class="video-thumbnail">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_23" title="Transformations chimiques" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-details">
+                <h3 class="video-title">Bilans de matière</h3>
+                <p class="video-description">Modélisation des réactions chimiques et calculs de bilans de matière.</p>
+                <div class="video-link">
+                    <a href="https://www.youtube.com/watch?v=VIDEO_ID_23" target="_blank">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<a class="back-to-top" href="#">
+<i class="fas fa-arrow-up"></i>
+</a>
+<div class="footer-spacer" style="height: 80px; clear: both;"></div>
+<footer class="auto-footer">
+<div class="footer-social-links">
+    <a href="https://www.youtube.com/channel/VOTRE_ID_CHAINE" target="_blank" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/VOTRE_COMPTE" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@VOTRE_COMPTE" target="_blank" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.facebook.com/VOTRE_PAGE" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+</div>
+© 2025 - Physiquetous.com<br/>Tous droits réservés<br/></footer>
+<script>
+// Script pour assurer que le footer est bien placé
+document.addEventListener('DOMContentLoaded', function() {
+  // Fonction pour ajuster le footer
+  function adjustFooter() {
+    const contentHeight = document.body.offsetHeight - document.querySelector('footer.auto-footer').offsetHeight;
+    const windowHeight = window.innerHeight;
+    if (contentHeight < windowHeight) {
+      document.querySelector('.footer-spacer').style.height = (windowHeight - contentHeight) + 'px';
+    }
+  }
+  
+  // Ajuster au chargement
+  adjustFooter();
+  
+  // Ajuster au redimensionnement
+  window.addEventListener('resize', adjustFooter);
+  
+  // Gestion du bouton "Back to top"
+  const backToTopButton = document.querySelector('.back-to-top');
+  
+  // Fonction pour afficher/masquer le bouton en fonction du défilement
+  function toggleBackToTopButton() {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  }
+  
+  // Écouter l'événement de défilement
+  window.addEventListener('scroll', toggleBackToTopButton);
+  
+  // Animer le défilement vers le haut lorsque le bouton est cliqué
+  backToTopButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Gestion des semestres
+  const buttons = document.querySelectorAll('.semestre-btn');
+  const sections = document.querySelectorAll('.semestre-section');
+  
+  function activate(id) {
+    // Désactiver tous les boutons et sections
+    sections.forEach(s => s.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    // Activer le bouton et la section correspondante
+    const targetSection = document.getElementById(id);
+    const targetButton = document.querySelector(`[data-target="${id}"]`);
+    
+    if (targetSection && targetButton) {
+      targetSection.classList.add('active');
+      targetButton.classList.add('active');
+      
+      // Animation de défilement pour une meilleure expérience utilisateur
+      window.scrollTo({
+        top: targetSection.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  }
+  
+  // Ajouter des écouteurs d'événements pour les boutons
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      activate(this.dataset.target);
+      // Sauvegarder la préférence de l'utilisateur dans le stockage local
+      localStorage.setItem('activeSemestre', this.dataset.target);
+    });
+  });
+  
+  // Activer le semestre préféré de l'utilisateur ou semestre 1 par défaut
+  const savedSemestre = localStorage.getItem('activeSemestre');
+  if (savedSemestre && document.getElementById(savedSemestre)) {
+    activate(savedSemestre);
+  } else {
+    // Par défaut, activer le semestre 1
+    activate('semestre-1');
+  }
+});
+</script>
+</body>
+</html>

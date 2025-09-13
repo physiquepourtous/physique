@@ -1,0 +1,86 @@
+/* Styles pour les ressources vidéo */
+
+/* Icône de vidéo */
+.video-icon {
+  color: #a51c30;
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+/* Item vidéo */
+.resource-item-video {
+  background-color: #fff1f1 !important;
+  border-left: 3px solid #a51c30;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-item-video:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal vidéo */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-modal-content {
+  background-color: #fff;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #a51c30;
+  color: #fff;
+}
+
+.video-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.video-modal-close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.video-modal-close:hover {
+  color: #eee;
+}
+
+.video-modal-body {
+  padding: 20px;
+}
+
+.video-modal-body video {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-modal-content {
+    width: 95%;
+  }
+}

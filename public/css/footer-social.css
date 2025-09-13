@@ -1,0 +1,40 @@
+/* Footer styles with social media links */
+.footer-social-links {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.footer-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-social-links .facebook {
+    background-color: #3b5998;
+}
+
+.footer-social-links .youtube {
+    background-color: #ff0000;
+}
+
+.footer-social-links .instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.footer-social-links .tiktok {
+    background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55);
+}

@@ -1,0 +1,98 @@
+/* Styles spécifiques pour le Tronc Commun Scientifique */
+
+/* Style des semestres */
+.semestre-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.semestre-btn {
+  padding: 14px 25px;
+  border-radius: 30px;
+  border: 2px solid #a51c30;
+  background: white;
+  color: #a51c30;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.semestre-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.semestre-btn.active {
+  background: #a51c30;
+  color: white;
+  box-shadow: 0 3px 10px rgba(165, 28, 48, 0.3);
+}
+
+.semestre-section {
+  display: none;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+.semestre-section.active {
+  display: block;
+}
+
+/* Animation de transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style des devoirs */
+.btn-devoir {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #a51c30;
+  background: rgba(165, 28, 48, 0.05);
+  color: #a51c30;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(165, 28, 48, 0.1);
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btn-devoir:hover {
+  transform: translateY(-2px);
+  background: rgba(165, 28, 48, 0.1);
+  box-shadow: 0 4px 8px rgba(165, 28, 48, 0.15);
+  text-decoration: none;
+}
+
+/* Optimisations pour mobile */
+@media (max-width: 768px) {
+  .semestre-switcher {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .semestre-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px 0;
+  }
+  
+  .btn-devoir {
+    display: block;
+    width: 100%;
+  }
+  
+  .chapters {
+    grid-template-columns: 1fr !important;
+  }
+}

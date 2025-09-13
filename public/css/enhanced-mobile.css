@@ -1,0 +1,261 @@
+/* Améliorations supplémentaires pour les appareils mobiles */
+
+/* Optimisations générales pour tous les écrans mobiles */
+@media (max-width: 768px) {
+  /* Amélioration de la navigation */
+  nav ul.menu-open {
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Amélioration des cartes de chapitre */
+  .chapter-card {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .chapter-card:active {
+    transform: scale(0.98);
+  }
+  
+  /* Style adaptatif pour les boutons resource-item */
+  .resources {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .resource-item {
+    width: 100%;
+    padding: 12px 15px;
+  }
+  
+  /* Amélioration du header */
+  header {
+    padding: 2rem 0;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  /* Amélioration du bouton back-to-top */
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  /* Optimisation de l'espace de section */
+  section {
+    margin-bottom: 2.5rem;
+  }
+  
+  section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  section h2:after {
+    width: 80px;
+    margin: 10px auto 0;
+  }
+  
+  /* Optimisation des boutons semestriels */
+  .semestre-switcher {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .semestre-btn {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    min-width: 120px;
+  }
+  
+  /* Amélioration du footer */
+  footer.auto-footer {
+    padding: 1.2rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer-social-links {
+    margin: 10px 0;
+  }
+}
+
+/* Optimisations pour les téléphones de taille moyenne */
+@media (max-width: 480px) {
+  /* Réglages de conteneur */
+  .container {
+    width: 92%;
+    padding: 0 10px;
+  }
+  
+  /* Amélioration de l'intro */
+  .intro {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.6rem;
+  }
+  
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Espacement des titres de section */
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Optimisation des cartes de chapitre */
+  .chapter-card {
+    padding: 1rem;
+  }
+  
+  .chapter-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+  }
+  
+  /* Amélioration des boutons */
+  a.btn-devoir, button.btn-devoir {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+  }
+  
+  /* Optimisation des images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Fix pour le menu hamburger */
+  .menu-toggle {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* Optimisations pour les petits téléphones */
+@media (max-width: 380px) {
+  body {
+    font-size: 15px;
+  }
+  
+  header h1 {
+    font-size: 1.6rem;
+  }
+  
+  header p {
+    font-size: 0.95rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.4rem;
+  }
+  
+  .chapter-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .resource-item a {
+    font-size: 0.9rem;
+  }
+  
+  /* Réduire l'espacement */
+  .intro {
+    padding: 1rem;
+  }
+  
+  .chapter-card {
+    padding: 0.85rem;
+  }
+  
+  /* Optimiser le footer */
+  .footer-social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 3px;
+  }
+}
+
+/* Amélioration de l'accessibilité tactile */
+@media (max-width: 768px) {
+  /* Augmenter la taille des zones tactiles */
+  .resource-item a, 
+  nav ul li a, 
+  .btn-devoir,
+  .semestre-btn,
+  .back-to-top {
+    min-height: 44px; /* Taille minimale recommandée pour les zones tactiles */
+  }
+  
+  /* Fix pour éviter le zoom sur les formulaires */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Optimisations pour l'orientation paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  header {
+    padding: 1.5rem 0;
+  }
+  
+  nav ul.menu-open {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .chapters {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .resource-item {
+    min-width: auto;
+  }
+}
+
+/* Amélioration de l'expérience utilisateur lors du chargement */
+.skeleton-loader {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  min-height: 20px;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Amélioration des performances d'animation */
+@media (max-width: 768px) {
+  .chapter-card,
+  .resource-item,
+  .back-to-top,
+  a.btn-devoir,
+  button.btn-devoir {
+    will-change: transform;
+  }
+}
