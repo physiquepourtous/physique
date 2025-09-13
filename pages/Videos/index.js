@@ -807,7 +807,7 @@ export default function Videos() {
           <div className="channel-info">
             <h3>Notre chaîne YouTube</h3>
             <p>Abonnez-vous à notre chaîne pour ne manquer aucune nouvelle vidéo !</p>
-            <a href="https://www.youtube.com/channel/VOTRE_ID_CHAINE" target="_blank" rel="noopener noreferrer" className="subscribe-button">
+            <a href="https://www.youtube.com/channel/UCHlP9BOjuViAH01MmsuF-YA" target="_blank" rel="noopener noreferrer" className="subscribe-button">
               <i className="fab fa-youtube"></i> S'abonner
             </a>
           </div>
