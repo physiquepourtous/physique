@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
+import { Analytics } from '@vercel/analytics/react';
+
 
 export default function MainLayout({ children, title = 'Ressources Éducatives pour Lycéens Marocains' }) {
   useEffect(() => {
@@ -221,6 +223,7 @@ export default function MainLayout({ children, title = 'Ressources Éducatives p
       </footer>
       
       <Script id="mobile-optimization" src="/js/mobile-optimization.js" strategy="afterInteractive" />
+      <Analytics />
     </>
   );
 }
